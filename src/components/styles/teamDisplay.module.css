@@ -11,7 +11,6 @@
   color: var(--text-color);
 }
 
-/* Team Stats Section */
 .teamStats {
   background-color: var(--card-bg);
   border-radius: 12px;
@@ -105,7 +104,6 @@
   color: var(--text-color);
 }
 
-/* Team Grid */
 .teamGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -226,41 +224,75 @@
   opacity: 0.8;
 }
 
-/* Pokemon type colors */
-.normal { background-color: #A8A878; }
-.fire { background-color: #F08030; }
-.water { background-color: #6890F0; }
-.grass { background-color: #78C850; }
-.electric { background-color: #F8D030; }
-.ice { background-color: #98D8D8; }
-.fighting { background-color: #C03028; }
-.poison { background-color: #A040A0; }
-.ground { background-color: #E0C068; }
-.flying { background-color: #A890F0; }
-.psychic { background-color: #F85888; }
-.bug { background-color: #A8B820; }
-.rock { background-color: #B8A038; }
-.ghost { background-color: #705898; }
-.dark { background-color: #705848; }
-.dragon { background-color: #7038F8; }
-.steel { background-color: #B8B8D0; }
-.fairy { background-color: #EE99AC; }
+.normal {
+  background-color: #a8a878;
+}
+.fire {
+  background-color: #f08030;
+}
+.water {
+  background-color: #6890f0;
+}
+.grass {
+  background-color: #78c850;
+}
+.electric {
+  background-color: #f8d030;
+}
+.ice {
+  background-color: #98d8d8;
+}
+.fighting {
+  background-color: #c03028;
+}
+.poison {
+  background-color: #a040a0;
+}
+.ground {
+  background-color: #e0c068;
+}
+.flying {
+  background-color: #a890f0;
+}
+.psychic {
+  background-color: #f85888;
+}
+.bug {
+  background-color: #a8b820;
+}
+.rock {
+  background-color: #b8a038;
+}
+.ghost {
+  background-color: #705898;
+}
+.dark {
+  background-color: #705848;
+}
+.dragon {
+  background-color: #7038f8;
+}
+.steel {
+  background-color: #b8b8d0;
+}
+.fairy {
+  background-color: #ee99ac;
+}
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .teamGrid {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   }
-  
+
   .pokemonImage {
     width: 80px;
     height: 80px;
   }
-  
+
   .pokemonCard {
     padding: 15px 10px;
   }
-  
+
   .statGroup {
     flex-direction: column;
   }
@@ -270,16 +302,16 @@
   .teamGrid {
     grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
   }
-  
+
   .pokemonCard {
     padding: 12px 8px;
   }
-  
+
   .statsContainer {
     flex-direction: column;
     gap: 5px;
   }
-  
+
   .stat {
     flex-direction: row;
     justify-content: space-between;
