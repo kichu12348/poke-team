@@ -1,0 +1,288 @@
+.teamContainer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+.teamContainer h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--text-color);
+}
+
+/* Team Stats Section */
+.teamStats {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.teamStats h3 {
+  color: var(--text-color);
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.statsSummary {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.statGroup {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.statItem {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--bg-color);
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.statLabel {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+.statValue {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.totalPower {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--accent-color);
+  color: #000;
+  padding: 12px 15px;
+  border-radius: 8px;
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+.totalValue {
+  font-size: 20px;
+}
+
+.typeDistribution {
+  margin-top: 20px;
+}
+
+.typeDistribution h4 {
+  margin-bottom: 10px;
+  color: var(--text-color);
+  text-align: center;
+}
+
+.typeContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.typeCount {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.count {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+/* Team Grid */
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.pokemonCard {
+  position: relative;
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px var(--shadow-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pokemonCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px var(--shadow-color);
+}
+
+.removeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.removeButton:hover {
+  opacity: 1;
+}
+
+.pokemonImage {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+}
+
+.pokemonCard h3 {
+  margin: 10px 0;
+  text-transform: capitalize;
+  color: var(--text-color);
+}
+
+.typeContainer {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 5px 0 15px;
+  flex-wrap: wrap;
+}
+
+.typeTag {
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  text-transform: capitalize;
+  color: white;
+}
+
+.statsContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  border-top: 1px solid var(--border-color);
+  padding-top: 10px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.statName {
+  font-size: 12px;
+  color: var(--text-color);
+  opacity: 0.8;
+  text-transform: uppercase;
+}
+
+.statValue {
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.emptyTeam {
+  width: 100%;
+  max-width: 600px;
+  margin: 50px auto;
+  text-align: center;
+  padding: 30px;
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.emptyTeam h2 {
+  margin-bottom: 15px;
+  color: var(--text-color);
+}
+
+.emptyTeam p {
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+/* Pokemon type colors */
+.normal { background-color: #A8A878; }
+.fire { background-color: #F08030; }
+.water { background-color: #6890F0; }
+.grass { background-color: #78C850; }
+.electric { background-color: #F8D030; }
+.ice { background-color: #98D8D8; }
+.fighting { background-color: #C03028; }
+.poison { background-color: #A040A0; }
+.ground { background-color: #E0C068; }
+.flying { background-color: #A890F0; }
+.psychic { background-color: #F85888; }
+.bug { background-color: #A8B820; }
+.rock { background-color: #B8A038; }
+.ghost { background-color: #705898; }
+.dark { background-color: #705848; }
+.dragon { background-color: #7038F8; }
+.steel { background-color: #B8B8D0; }
+.fairy { background-color: #EE99AC; }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .teamGrid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+  
+  .pokemonImage {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .pokemonCard {
+    padding: 15px 10px;
+  }
+  
+  .statGroup {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .teamGrid {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  }
+  
+  .pokemonCard {
+    padding: 12px 8px;
+  }
+  
+  .statsContainer {
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .stat {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
