@@ -3,7 +3,6 @@ import {
   useMemo,
   useContext,
   useState,
-  useEffect,
   useLayoutEffect,
 } from "react";
 
@@ -109,7 +108,7 @@ export const TeamProvider = ({ children }) => {
         addToTeam,
         removeFromTeam,
         isDarkMode,
-        setIsDarkMode,
+        setIsDarkMode
       }}
     >
       {children}

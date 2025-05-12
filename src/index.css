@@ -34,7 +34,8 @@ body {
   overflow-x: hidden;
   min-height: 100svh;
   background-color: var(--bg-color);
-  color: var(--text-color);
+  color: var(--text-color);  
+  position: relative;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -57,6 +58,7 @@ body::-webkit-scrollbar-thumb:hover {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+
 }
 
 .container {
@@ -76,7 +78,7 @@ body::-webkit-scrollbar-thumb:hover {
   margin-bottom: 20px;
 }
 
-.footer{
+.footer {
   width: 100%;
   padding: 20px;
   text-align: center;
@@ -94,10 +96,8 @@ body::-webkit-scrollbar-thumb:hover {
     font-size: 1rem;
   }
 
-  ::-webkit-scrollbar {
-    /*
-    Hide scrollbar for Chrome, Safari and Opera 
-    */
+  .App::-webkit-scrollbar {
+    overflow-y: auto;
     display: none;
   }
 }
