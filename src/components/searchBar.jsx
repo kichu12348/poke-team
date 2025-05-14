@@ -8,12 +8,13 @@ function Search() {
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredPokemons, setFilteredPokemons] = useState([]);
   const [showResults, setShowResults] = useState(false);
-  const { debouncedFetch, searchQueryResult, isLoading, error, addToTeam } =
+  const { debouncedFetch, searchQueryResult, isLoading, error, addToTeam,setError } =
     useTeam();
 
   const handleInputChange = (e) => {
     const query = e.target.value;
     setSearchQuery(query);
+    if(error) setError(null);
 
     if (query.trim() === "") {
       setFilteredPokemons([]);

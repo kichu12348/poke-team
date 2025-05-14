@@ -68,15 +68,22 @@ export const TeamProvider = ({ children }) => {
 
   const debouncedFetch = useMemo(() => debounce(fetchFromPokeAPI, 300), []);
 
+  const displayError = (error) => {
+    setError(error);
+    setTimeout(() => {
+      setError(null);
+    }, 2000);
+  };
+
   const addToTeam = (pokemon) => {
     if (team.length >= 8) {
-      setError("Your team is full (maximum 8 Pokémon)");
+      displayError("Your team is full (maximum 8 Pokémon)");
       setSearchQueryResult(null);
       return false;
     }
 
     if (team.some((p) => p.id === pokemon.id)) {
-      setError(`${pokemon.name} is already in your team`);
+      displayError(`${pokemon.name} is already in your team`);
       setSearchQueryResult(null);
       return false;
     }
@@ -108,7 +115,8 @@ export const TeamProvider = ({ children }) => {
         addToTeam,
         removeFromTeam,
         isDarkMode,
-        setIsDarkMode
+        setIsDarkMode,
+        setError,
       }}
     >
       {children}
