@@ -1,31 +1,37 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styles from "./styles/search.module.css";
 import { IoSearchSharp } from "react-icons/io5";
 import { useTeam } from "../context/team";
+import { pokemons } from "../constants/pokemons";
 
 function Search() {
   const [searchQuery, setSearchQuery] = useState("");
+  const [filteredPokemons, setFilteredPokemons] = useState([]);
   const [showResults, setShowResults] = useState(false);
   const { debouncedFetch, searchQueryResult, isLoading, error, addToTeam } =
     useTeam();
 
-
   const handleInputChange = (e) => {
-    setSearchQuery(e.target.value);
-    if (e.target.value.trim() === "") {
+    const query = e.target.value;
+    setSearchQuery(query);
+
+    if (query.trim() === "") {
+      setFilteredPokemons([]);
       setShowResults(false);
     } else {
-      debouncedFetch(e.target.value)
+      const matches = pokemons.filter((pokemon) =>
+        pokemon.toLowerCase().includes(query.toLowerCase())
+      );
+      console.log(matches);
+      setFilteredPokemons(matches);
       setShowResults(true);
     }
   };
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    if (searchQuery.trim() !== "") {
-      debouncedFetch(searchQuery);
-      setShowResults(true);
-    }
+  const handlePokemonClick = (pokemonName) => {
+    setSearchQuery(pokemonName);
+    setFilteredPokemons([]);
+    debouncedFetch(pokemonName);
   };
 
   const handleAddToTeam = () => {
@@ -41,10 +47,10 @@ function Search() {
       if (success) {
         setSearchQuery("");
         setShowResults(false);
-      }else{
-        setTimeout(()=>{
-            setSearchQuery("");
-            setShowResults(false);
+      } else {
+        setTimeout(() => {
+          setSearchQuery("");
+          setShowResults(false);
         }, 2000);
       }
     }
@@ -58,7 +64,7 @@ function Search() {
         }`}
       >
         <form
-          onSubmit={handleSearch}
+          onSubmit={(e) => e.preventDefault()}
           style={{ display: "flex", width: "100%" }}
         >
           <input
@@ -73,39 +79,51 @@ function Search() {
           </button>
         </form>
 
-        <div
-          className={`${styles.resultsContainer} ${
-            showResults ? styles.showResult : ""
-          }`}
-        >
-          {isLoading && <div className={styles.loading}>Loading...</div>}
-
-          {error && <div className={styles.error}>{error}</div>}
-
-          {!isLoading && !error && searchQueryResult && (
-            <div className={styles.resultItem} onClick={handleAddToTeam}>
-              <img
-                src={searchQueryResult.sprites.front_default}
-                alt={searchQueryResult.name}
-                className={styles.pokemonSprite}
-              />
-              <div className={styles.pokemonInfo}>
-                <h3>{searchQueryResult.name}</h3>
-                <div className={styles.typeContainer}>
-                  {searchQueryResult.types.map((type) => (
-                    <span
-                      key={type.type.name}
-                      className={`${styles.typeTag} ${styles[type.type.name]}`}
-                    >
-                      {type.type.name}
-                    </span>
-                  ))}
-                </div>
+        {showResults && filteredPokemons.length > 0 && (
+          <div className={`${styles.resultsContainer} ${showResults?styles.showResult:""}`}
+            style={{
+              height: `${(filteredPokemons.length * 40)}px`,
+            }}
+          >
+            {filteredPokemons.map((pokemon) => (
+              <div
+                key={pokemon}
+                className={styles.resultItem}
+                onClick={() => handlePokemonClick(pokemon)}
+              >
+                {pokemon}
               </div>
-              <button className={styles.addButton}>Add</button>
+            ))}
+          </div>
+        )}
+
+        {isLoading && <div className={styles.loading}>Loading...</div>}
+
+        {error && <div className={styles.error}>{error}</div>}
+
+        {!isLoading && !error && searchQueryResult && (
+          <div className={styles.searchQueryResult}>
+            <img
+              src={searchQueryResult.sprites.front_default}
+              alt={searchQueryResult.name}
+              className={styles.pokemonSprite}
+            />
+            <div className={styles.pokemonInfo}>
+              <h3>{searchQueryResult.name}</h3>
+              <div className={styles.typeContainer}>
+                {searchQueryResult.types.map((type) => (
+                  <span
+                    key={type.type.name}
+                    className={`${styles.typeTag} ${styles[type.type.name]}`}
+                  >
+                    {type.type.name}
+                  </span>
+                ))}
+              </div>
             </div>
-          )}
-        </div>
+            <button className={styles.addButton} onClick={handleAddToTeam}>Add</button>
+          </div>
+        )}
       </div>
     </div>
   );

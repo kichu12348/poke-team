@@ -64,13 +64,24 @@
     width: 100%;
     z-index: 10;
     max-height: 300px;
-    overflow-y: hidden;
+    overflow-y: auto;
     height:0;
     transition: height 0.3s ease;
 }
 
+.resultsContainer::-webkit-scrollbar {
+    width: 8px;
+}
+.resultsContainer::-webkit-scrollbar-thumb {
+    background-color: var(--text-color);
+}
+
+.resultsContainer::-webkit-scrollbar-track {
+    background-color: var(--card-bg);
+}
+
 .resultsContainer.showResult{
-    height: 100px;
+    min-height:40px;
 }
 
 .loading, .error {
@@ -86,6 +97,16 @@
 .resultItem {
     display: flex;
     align-items: center;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.searchQueryResult {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
     padding: 10px 15px;
     transition: background-color 0.2s ease;
 }
