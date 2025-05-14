@@ -23,7 +23,6 @@ function Search() {
       const matches = pokemons.filter((pokemon) =>
         pokemon.toLowerCase().includes(query.toLowerCase())
       );
-      console.log(matches);
       setFilteredPokemons(matches);
       setShowResults(true);
     }
