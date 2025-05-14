@@ -40,17 +40,15 @@ body {
 }
 
 body::-webkit-scrollbar {
-  width: 8px;
+  width: 5px;
 }
 body::-webkit-scrollbar-thumb {
-  background-color: var(--border-color);
+  background-color: var(--text-color);
 }
 body::-webkit-scrollbar-track {
-  background-color: var(--bg-color);
+  background-color: transparent;
 }
-body::-webkit-scrollbar-thumb:hover {
-  background-color: var(--primary-color);
-}
+
 
 .App {
   min-height: 100svh;
